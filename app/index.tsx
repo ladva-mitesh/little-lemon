@@ -11,7 +11,7 @@ export default function Index() {
       <View
         style={styles.container}>
         <LittleLemonHeader />
-        <WelcomeScreen />
+        <MenuItemts />
         <LittleLemonFooter />
       </View>
     </>
