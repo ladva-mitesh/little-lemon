@@ -3,8 +3,9 @@ import { ScrollView, Text, View, StyleSheet, Image, useColorScheme } from 'react
 
 const WelcomeScreen = () => {
     const theme = useColorScheme();
+    const isDark = theme === "dark";
     return (
-        <ScrollView style={styles.container} indicatorStyle='white'>
+        <ScrollView style={[styles.container, { backgroundColor: isDark ? "#333333" : "#fff" }]} indicatorStyle='white'>
             <View style={styles.headerWrapper}>
                 <Image
                     style={styles.image}
@@ -13,19 +14,18 @@ const WelcomeScreen = () => {
                     accessible={true}
                     accessibilityLabel={'Little Lemon Logo'}
                 />
-                <Text style={styles.headerText}>Little Lemon</Text>
+                <Text style={[styles.headerText, { color: isDark ? "#fff" : "#333333" }]}>Little Lemon</Text>
             </View>
-            <Text style={styles.regularText}>
+            <Text style={[styles.regularText, { color: isDark ? "#fff" : "#333333" }]}>
                 Little Lemon is a charming neighborhood bistro that serves simple food and classic cocktails in a lively but casual environment. We would love to hear more about your experience with us!
             </Text>
-            <Text style={styles.headerText}>Current Theme is: {theme}</Text>
         </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1
     },
     headerWrapper: {
         flexDirection: 'row',
