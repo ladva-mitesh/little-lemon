@@ -12,7 +12,7 @@ export default function Index() {
       <View
         style={styles.container}>
         <LittleLemonHeader />
-        <LoginScreen />
+        <WelcomeScreen />
         <LittleLemonFooter />
       </View>
     </>

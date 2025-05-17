@@ -1,13 +1,24 @@
 import React from 'react';
-import { ScrollView, Text, View, StyleSheet } from 'react-native';
+import { ScrollView, Text, View, StyleSheet, Image, useColorScheme } from 'react-native';
 
 const WelcomeScreen = () => {
+    const theme = useColorScheme();
     return (
         <ScrollView style={styles.container} indicatorStyle='white'>
-            <Text style={styles.heading}>Welcome to Little Lemon</Text>
-            <Text style={styles.description}>
+            <View style={styles.headerWrapper}>
+                <Image
+                    style={styles.image}
+                    source={require("./logo.png")}
+                    resizeMode='cover'
+                    accessible={true}
+                    accessibilityLabel={'Little Lemon Logo'}
+                />
+                <Text style={styles.headerText}>Little Lemon</Text>
+            </View>
+            <Text style={styles.regularText}>
                 Little Lemon is a charming neighborhood bistro that serves simple food and classic cocktails in a lively but casual environment. We would love to hear more about your experience with us!
             </Text>
+            <Text style={styles.headerText}>Current Theme is: {theme}</Text>
         </ScrollView>
     );
 }
@@ -16,19 +27,32 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-    heading: {
-        padding: 40,
-        fontSize: 50,
+    headerWrapper: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        margin: 10,
+    },
+    headerText: {
+        paddingRight: 10,
+        paddingLeft: 20,
+        paddingTop: 30,
+        paddingBottom: 10,
+        fontSize: 30,
         color: '#EDEFEE',
         textAlign: 'center',
     },
-    description: {
-        fontSize: 38,
+    regularText: {
+        fontSize: 24,
         padding: 20,
         marginVertical: 8,
         color: '#EDEFEE',
         textAlign: 'center',
     },
+    image: {
+        width: 100,
+        height: 100,
+        borderRadius: 20,
+    }
 });
 
 export default WelcomeScreen;
